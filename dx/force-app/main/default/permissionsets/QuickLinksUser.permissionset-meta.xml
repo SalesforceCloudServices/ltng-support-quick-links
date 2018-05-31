@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <applicationVisibilities>
+        <application>ltng_QuickLinksDemo</application>
+        <visible>true</visible>
+    </applicationVisibilities>
     <description>User of quicklinks</description>
     <fieldPermissions>
         <editable>true</editable>
@@ -42,4 +46,8 @@
         <object>ltng_QuickLink__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
+    <tabSettings>
+        <tab>ltng_QuickLinksDemo</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
 </PermissionSet>
