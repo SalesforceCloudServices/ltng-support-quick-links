@@ -1,0 +1,4 @@
+<design:component label='Quick Links'>
+    <design:attribute name='debug' label='Debug' default='false' />
+    <design:attribute name='maxTileSize' label='Max Tile Size' default='200' description='Max size of the tile' /> 
+</design:component>

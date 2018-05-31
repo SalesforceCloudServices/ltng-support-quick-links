@@ -1,0 +1,20 @@
+<aura:component >
+    <!-- attributes -->
+	<aura:attribute name='quickLink' type='QuickLink__c' description="QuickLink SObject" access='public' />
+    <!-- handlers -->
+    <aura:handler name='init' value='{!this}' action='{!c.doInit}' />
+    <aura:handler name='change' value='{!v.quickLink}' action='{!c.handleQuickLinkChanged}' />
+    <li class='slds-size--1-of-2 slds-p-horizontal--large slds-p-vertical--xxx-small'>
+        <div class='slds-tile'>
+            <span class='slds-truncate' title='{# v.quickLink.Name }'>
+                <aura:if isTrue='{! v.quickLink.IconName__c }'>
+                <span class="slds-avatar slds-avatar--x-small">
+                    <lightning:icon iconName="{# '' + (v.quickLink.IconGroup__c?v.quickLink.IconGroup__c:'standard') + ':' + v.quickLink.IconName__c }" size="x-small" alternativeText="{# v.quickLink.IconName__c }" />
+                </span>
+                </aura:if>
+
+                <ui:outputURL class='slds-m-left--xx-small' click='{! c.handleLinkClicked }' label='{# v.quickLink.Name }' title='{# v.quickLink.Description__c }' />
+            </span>
+        </div>
+    </li>
+</aura:component>

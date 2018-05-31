@@ -1,0 +1,69 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "QuickLink__c",
+                "referenceId": "QuickLink__cRef1"
+            },
+            "CreatedDate": "2018-03-23T17:49:01.000+0000",
+            "Description__c": "Description of Quicklink (see description field)",
+            "ExternalId__c": "test_announcement",
+            "IconGroup__c": "utility",
+            "IconName__c": "announcement",
+            "IsDeleted": false,
+            "LastModifiedDate": "2018-03-23T21:29:51.000+0000",
+            "Name": "Announcement",
+            "SystemModstamp": "2018-03-23T21:29:51.000+0000",
+            "Target__c": "/a01",
+            "Type__c": "URL"
+        },
+        {
+            "attributes": {
+                "type": "QuickLink__c",
+                "referenceId": "QuickLink__cRef2"
+            },
+            "CreatedDate": "2018-03-23T18:21:29.000+0000",
+            "Description__c": "Description for Answer quicklink (see description field)",
+            "ExternalId__c": "test_answer",
+            "IconGroup__c": "utility",
+            "IconName__c": "answer",
+            "IsDeleted": false,
+            "LastModifiedDate": "2018-03-23T21:28:20.000+0000",
+            "Name": "List of Answers",
+            "SystemModstamp": "2018-03-23T21:28:20.000+0000",
+            "Type__c": "URL"
+        },
+        {
+            "attributes": {
+                "type": "QuickLink__c",
+                "referenceId": "QuickLink__cRef3"
+            },
+            "CreatedDate": "2018-03-23T18:44:27.000+0000",
+            "Description__c": "Description for Account quicklink (see description field)",
+            "ExternalId__c": "test_account",
+            "IconGroup__c": "standard",
+            "IconName__c": "account",
+            "IsDeleted": false,
+            "LastModifiedDate": "2018-03-23T21:28:45.000+0000",
+            "Name": "Account Link",
+            "SystemModstamp": "2018-03-23T21:28:45.000+0000",
+            "Type__c": "URL"
+        },
+        {
+            "attributes": {
+                "type": "QuickLink__c",
+                "referenceId": "QuickLink__cRef4"
+            },
+            "CreatedDate": "2018-03-23T18:45:27.000+0000",
+            "Description__c": "Description for Answer quicklink (see description field)",
+            "ExternalId__c": "test_standard",
+            "IconGroup__c": "standard",
+            "IconName__c": "custom",
+            "IsDeleted": false,
+            "LastModifiedDate": "2018-03-23T21:29:08.000+0000",
+            "Name": "Standard Link",
+            "SystemModstamp": "2018-03-23T21:29:08.000+0000",
+            "Type__c": "URL"
+        }
+    ]
+}
