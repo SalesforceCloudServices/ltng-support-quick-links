@@ -1,6 +1,6 @@
 <aura:component >
     <!-- attributes -->
-	<aura:attribute name='quickLink' type='QuickLink__c' description="QuickLink SObject" access='public' />
+	<aura:attribute name='quickLink' type='ltng_QuickLink__c' description="QuickLink SObject" access='public' />
     <!-- handlers -->
     <aura:handler name='init' value='{!this}' action='{!c.doInit}' />
     <aura:handler name='change' value='{!v.quickLink}' action='{!c.handleQuickLinkChanged}' />

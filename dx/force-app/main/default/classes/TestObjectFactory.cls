@@ -235,11 +235,11 @@ public with sharing class TestObjectFactory {
 	 * @param ExternalId (String)
 	 * @param Description (String)
 	 **/
-	public static QuickLink__c createQuickLink( String Name, String ExternalId, String Type, String Target, String Description, String Permission ){
+	public static ltng_QuickLink__c createQuickLink( String Name, String ExternalId, String Type, String Target, String Description, String Permission ){
 		if( String.isEmpty( ExternalId )){
 			ExternalId = Name;
 		}
-		QuickLink__c results = new QuickLink__c(
+		ltng_QuickLink__c results = new ltng_QuickLink__c(
 			Name = Name,
 			Target__c = Target,
 			Type__c = Type,

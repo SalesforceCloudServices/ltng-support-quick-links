@@ -3,32 +3,32 @@
     <description>User of quicklinks</description>
     <fieldPermissions>
         <editable>true</editable>
-        <field>QuickLink__c.Description__c</field>
+        <field>ltng_QuickLink__c.Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>QuickLink__c.IconGroup__c</field>
+        <field>ltng_QuickLink__c.IconGroup__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>QuickLink__c.IconName__c</field>
+        <field>ltng_QuickLink__c.IconName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>QuickLink__c.Permission__c</field>
+        <field>ltng_QuickLink__c.Permission__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>QuickLink__c.PreferredSortIndex__c</field>
+        <field>ltng_QuickLink__c.PreferredSortIndex__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>QuickLink__c.Target__c</field>
+        <field>ltng_QuickLink__c.Target__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
@@ -39,7 +39,7 @@
         <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>QuickLink__c</object>
+        <object>ltng_QuickLink__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
 </PermissionSet>

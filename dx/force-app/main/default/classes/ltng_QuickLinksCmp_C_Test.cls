@@ -1,5 +1,5 @@
 @isTest
-public class QuickLinksCmp_C_Test {
+public class ltng_QuickLinksCmp_C_Test {
     
     @TestSetup
 	static void setup() {
@@ -17,8 +17,8 @@ public class QuickLinksCmp_C_Test {
 	    User adminUser;
 	    User stdUser;
 	    
-	    QuickLink__c adminQuickLink;
-	    QuickLink__c pocQuickLink;
+	    ltng_QuickLink__c adminQuickLink;
+	    ltng_QuickLink__c pocQuickLink;
 	    
 	    public TestSettings(){
             findUsers();
@@ -41,7 +41,7 @@ public class QuickLinksCmp_C_Test {
     		adminQuickLink = TestObjectFactory.createQuickLink('String Name', 'admin link', 'URL', 'String Target', 'String Description', TestObjectFactory.PERM_SET_QUICKLINK_ADMIN );
     		pocQuickLink = TestObjectFactory.createQuickLink('String Name2', 'external Link', 'URL', 'String Target2', 'String Description2', 'AccessPOCs');
     		
-    		insert( new QuickLink__c[]{ adminQuickLink, pocQuickLink });
+    		insert( new ltng_QuickLink__c[]{ adminQuickLink, pocQuickLink });
 	    }
 	    
 	    public void createQuickLinksWithEmpty(){
@@ -50,7 +50,7 @@ public class QuickLinksCmp_C_Test {
     		adminQuickLink = TestObjectFactory.createQuickLink('String Name', 'admin link', 'URL', 'String Target', 'String Description', TestObjectFactory.PERM_SET_QUICKLINK_ADMIN );
     		pocQuickLink = TestObjectFactory.createQuickLink('String Name2', 'external Link', 'URL', 'String Target2', 'String Description2', null);
     		
-    		insert( new QuickLink__c[]{ adminQuickLink, pocQuickLink });
+    		insert( new ltng_QuickLink__c[]{ adminQuickLink, pocQuickLink });
 	    }
 	    
 	    public void setupStandard(){
@@ -70,16 +70,16 @@ public class QuickLinksCmp_C_Test {
         ts.setupStandard();
         ts.finalize();
         
-        QuickLink__c[] results;
-        QuickLink__c[] expected = new QuickLink__c[]{ ts.adminQuickLink };
+        ltng_QuickLink__c[] results;
+        ltng_QuickLink__c[] expected = new ltng_QuickLink__c[]{ ts.adminQuickLink };
         
         System.runAs( ts.adminUser ){
-            results = QuickLinksCmp_c.getMyLinks();
+            results = ltng_QuickLinksCmp_c.getMyLinks();
             
             System.assertEquals( expected.size(), results.size(), 'There should be only one quicklink found, because it is assigned to the sys admin custom permission/permission set');
             
-            QuickLink__c expectedQuickLink = expected[0];
-            QuickLink__c resultQuickLink = results[0];
+            ltng_QuickLink__c expectedQuickLink = expected[0];
+            ltng_QuickLink__c resultQuickLink = results[0];
             
             System.assertEquals( expectedQuickLink.id, resultQuickLink.id, 'the only quicklink to be found is the one with the matching perm set/custom permission as admin');
         }
@@ -90,16 +90,16 @@ public class QuickLinksCmp_C_Test {
         ts.setupQuickLinksWithoutPermissions();
         ts.finalize();
         
-        QuickLink__c[] results;
-        QuickLink__c[] expected = new QuickLink__c[]{ ts.pocQuickLink };
+        ltng_QuickLink__c[] results;
+        ltng_QuickLink__c[] expected = new ltng_QuickLink__c[]{ ts.pocQuickLink };
         
         System.runAs( ts.stdUser ){
-            results = QuickLinksCmp_c.getMyLinks();
+            results = ltng_QuickLinksCmp_c.getMyLinks();
             
             System.assertEquals( expected.size(), results.size(), 'There should not have any quicklinks, because it is assigned to a permission set that the user does not have');
             
-            QuickLink__c expectedQuickLink = expected[0];
-            QuickLink__c resultQuickLink = results[0];
+            ltng_QuickLink__c expectedQuickLink = expected[0];
+            ltng_QuickLink__c resultQuickLink = results[0];
             
             System.assertEquals( expectedQuickLink.id, resultQuickLink.id, 'the only quicklink to be found is the one with the matching perm set/custom permission as admin');
         }

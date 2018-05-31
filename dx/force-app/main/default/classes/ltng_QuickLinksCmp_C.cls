@@ -2,15 +2,15 @@
  *  Controller for the QuickLinks lightning component
  *  @author Paul Roth <proth@salesforce.com>
  **/
-public with sharing class QuickLinksCmp_C {
+public with sharing class ltng_QuickLinksCmp_C {
 	
 	/**
 	 *  Determines the list of QuickLinks available to the user.
-	 *  @return (QuickLink__c)
+	 *  @return (ltng_QuickLink__c)
 	 **/
 	@AuraEnabled
-	public static QuickLink__c[] getMyLinks(){
-		QuickLink__c[] results = new QuickLink__c[]{};
+	public static ltng_QuickLink__c[] getMyLinks(){
+		ltng_QuickLink__c[] results = new ltng_QuickLink__c[]{};
 		
 		return( getLinks( UserInfo.getUserId() ));
 	}
@@ -18,10 +18,10 @@ public with sharing class QuickLinksCmp_C {
 	/**
 	 *  Determines the list of QuickLinks available to a specific person.
 	 *  @param userId (Id)
-	 *  @return (QuickLink__c[])
+	 *  @return (ltng_QuickLink__c[])
 	 **/
-	public static QuickLink__c[] getLinks( Id userId ){
-		QuickLink__c[] results = new QuickLink__c[]{};
+	public static ltng_QuickLink__c[] getLinks( Id userId ){
+		ltng_QuickLink__c[] results = new ltng_QuickLink__c[]{};
 		
 		//-- @TODO: add try catch in after completed
 		//try {
@@ -29,7 +29,7 @@ public with sharing class QuickLinksCmp_C {
 		//-- set of all custom permissions to check for
 		Set<String> allQuickLinkPermissions = new Set<String>();
 		//-- map of all quicklinks grouped by custom permission developer name
-		Map<String,QuickLink__c[]> quickLinksByPermission = new Map<String,QuickLink__c[]>();
+		Map<String,ltng_QuickLink__c[]> quickLinksByPermission = new Map<String,ltng_QuickLink__c[]>();
 		//-- ids of all the permission sets that contain those custom permissions
 		//-- translation of all custom permissions developer names into their ids
 		Map<Id,String> customPermissions = new Map<Id,String>();
@@ -37,17 +37,17 @@ public with sharing class QuickLinksCmp_C {
 		Map<Id,String[]> permissionSetPermissions = new Map<Id,String[]>();
 		
 		//-- determine all quicklinks and sort them by the permission required to see them.
-		QuickLink__c[] allQuickLinks = [ select id, name, Description__c, ExternalId__c, IconGroup__c, IconName__c, Type__c, Target__c, Permission__c, PreferredSortIndex__c, LastModifiedDate
-			from QuickLink__c
+		ltng_QuickLink__c[] allQuickLinks = [ select id, name, Description__c, ExternalId__c, IconGroup__c, IconName__c, Type__c, Target__c, Permission__c, PreferredSortIndex__c, LastModifiedDate
+			from ltng_QuickLink__c
 			order by PreferredSortIndex__c NULLS LAST, name
 		];
 		
-		for( QuickLink__c quickLink : allQuickLinks ){
+		for( ltng_QuickLink__c quickLink : allQuickLinks ){
 			if( String.isEmpty( quickLink.Permission__c )){
 				results.add( quickLink );
 			} else {
 				if( !quickLinksByPermission.containsKey( quickLink.Permission__c )){
-					quickLinksByPermission.put( quickLink.Permission__c, new QuickLink__c[]{} );
+					quickLinksByPermission.put( quickLink.Permission__c, new ltng_QuickLink__c[]{} );
 				}
 				quickLinksByPermission.get( quickLink.Permission__c ).add( quickLink );
 			}

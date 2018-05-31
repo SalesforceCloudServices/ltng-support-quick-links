@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <classAccesses>
-        <apexClass>QuickLinksCmp_C</apexClass>
+        <apexClass>ltng_QuickLinksCmp_C</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <customPermissions>
@@ -11,32 +11,32 @@
     <description>Someone that can administrate QuickLinks</description>
     <fieldPermissions>
         <editable>true</editable>
-        <field>QuickLink__c.Description__c</field>
+        <field>ltng_QuickLink__c.Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>QuickLink__c.IconGroup__c</field>
+        <field>ltng_QuickLink__c.IconGroup__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>QuickLink__c.IconName__c</field>
+        <field>ltng_QuickLink__c.IconName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>QuickLink__c.Permission__c</field>
+        <field>ltng_QuickLink__c.Permission__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>QuickLink__c.PreferredSortIndex__c</field>
+        <field>ltng_QuickLink__c.PreferredSortIndex__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>QuickLink__c.Target__c</field>
+        <field>ltng_QuickLink__c.Target__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
@@ -47,11 +47,11 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-        <object>QuickLink__c</object>
+        <object>ltng_QuickLink__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <tabSettings>
-        <tab>QuickLink__c</tab>
+        <tab>ltng_QuickLink__c</tab>
         <visibility>Available</visibility>
     </tabSettings>
 </PermissionSet>

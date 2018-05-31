@@ -2,7 +2,7 @@
 	/**
 	 * @param linkType (String) - type of quicklink
 	 * @param linkTarget (String) - target address
-	 * @param quickLink (QuickLink__c) - quickLinkObject - if needed
+	 * @param quickLink (ltng_QuickLink__c) - quickLinkObject - if needed
 	 **/
     followQuickLink : function( linkType, linkTarget, quickLink ) {
         if( linkType == 'Visualforce' ){
@@ -24,7 +24,7 @@
     
     /**
      * Initializes the component if the quickLinks have changed
-     * @param quickLink (QuickLink__c)
+     * @param quickLink (ltng_QuickLink__c)
      * @param component
      * @param helper
      **/

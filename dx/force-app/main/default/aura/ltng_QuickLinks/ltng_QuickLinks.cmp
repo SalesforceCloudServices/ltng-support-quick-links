@@ -1,11 +1,11 @@
-<aura:component controller="QuickLinksCmp_C" implements="force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickAction"
+<aura:component controller="ltng_QuickLinksCmp_C" implements="force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickAction"
     access="global"
 >
     <!-- designer -->
     <aura:attribute name='maxTileSize' type='Integer' default='200' access='global' />
     <!-- private -->
 	<aura:attribute name='debug' type='Boolean' default='false' access='global' />
-	<aura:attribute name='quickLinks' type='QuickLink__c[]' access='global' />
+	<aura:attribute name='quickLinks' type='ltng_QuickLink__c[]' access='global' />
     <aura:attribute name='setupComplete' type='Boolean' default='false' access='public' />
     <!-- scripts -->
     <!-- handlers -->
@@ -28,7 +28,7 @@
             <div class='slds-card__body'>
                 <ul class='slds-grid slds-grid--pull-padded slds-wrap'>
                 <aura:iteration items='{! v.quickLinks }' var='quickLink'>
-                    <c:QuickLinkTile quickLink='{! quickLink }' />
+                    <c:ltng_QuickLinksTile quickLink='{! quickLink }' />
                 </aura:iteration>
                 </ul>
             </div>
