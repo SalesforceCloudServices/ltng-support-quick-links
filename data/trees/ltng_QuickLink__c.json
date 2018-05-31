@@ -1,0 +1,70 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "ltng_QuickLink__c",
+                "referenceId": "ltng_QuickLink__cRef1"
+            },
+            "Description__c": "Description of Quicklink (see description field)",
+            "ExternalId__c": "test_announcement",
+            "IconGroup__c": "utility",
+            "IconName__c": "announcement",
+            "Name": "Announcement",
+            "Target__c": "/a01",
+            "Type__c": "URL"
+        },
+        {
+            "attributes": {
+                "type": "ltng_QuickLink__c",
+                "referenceId": "ltng_QuickLink__cRef2"
+            },
+            "Description__c": "Description for Answer quicklink (see description field)",
+            "ExternalId__c": "test_answer",
+            "IconGroup__c": "utility",
+            "IconName__c": "answer",
+            "Name": "List of Answers",
+            "Target__c": "/a01",
+            "Type__c": "URL"
+        },
+        {
+            "attributes": {
+                "type": "ltng_QuickLink__c",
+                "referenceId": "ltng_QuickLink__cRef3"
+            },
+            "Description__c": "Description for Account quicklink (see description field)",
+            "ExternalId__c": "test_account",
+            "IconGroup__c": "standard",
+            "IconName__c": "account",
+            "Name": "Account Link",
+            "Target__c": "/a01",
+            "Type__c": "URL"
+        },
+        {
+            "attributes": {
+                "type": "ltng_QuickLink__c",
+                "referenceId": "ltng_QuickLink__cRef4"
+            },
+            "Description__c": "Description for Answer quicklink (see description field)",
+            "ExternalId__c": "test_standard",
+            "IconGroup__c": "standard",
+            "IconName__c": "custom",
+            "Name": "Standard Link",
+            "Target__c": "/a01",
+            "Type__c": "URL"
+        },
+        {
+            "attributes": {
+                "type": "ltng_QuickLink__c",
+                "referenceId": "ltng_QuickLink__cRef5"
+            },
+            "Description__c": "Link only available to Admins",
+            "ExternalId__c": "admin_link",
+            "IconGroup__c": "standard",
+            "IconName__c": "custom",
+            "Name": "Admin Only Link",
+            "Permission__c": "QuickLinksAdmin",
+            "Target__c": "/a01",
+            "Type__c": "URL"
+        }
+    ]
+}

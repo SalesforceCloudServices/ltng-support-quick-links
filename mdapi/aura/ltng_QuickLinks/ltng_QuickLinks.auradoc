@@ -1,0 +1,6 @@
+<aura:documentation>
+	<aura:description>Component to help navigate quickly and easily</aura:description>
+	<aura:example name="QuickLinks" ref="QuickLinks" label="QuickLinks">
+		Simply include the QuickLinks into the Lightning App Builder Page.
+	</aura:example>
+</aura:documentation>

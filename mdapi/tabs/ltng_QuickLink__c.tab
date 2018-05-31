@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customObject>true</customObject>
+    <description>Object tab for QuickLinks - a declarative way of linking to records, pages, etc. through custom permissions.</description>
+    <mobileReady>false</mobileReady>
+    <motif>Custom46: Postage</motif>
+</CustomTab>

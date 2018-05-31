@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Setup page for the QuickLinks demo.</description>
+    <flexiPage>ltng_QuickLinksDemoSetup</flexiPage>
+    <label>Setup for QuickLinks Demo</label>
+    <mobileReady>false</mobileReady>
+    <motif>Custom87: Safe</motif>
+</CustomTab>

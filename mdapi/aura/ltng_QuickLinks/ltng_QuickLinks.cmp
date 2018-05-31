@@ -1,0 +1,37 @@
+<aura:component controller="ltng_QuickLinksCmp_C" implements="force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickAction"
+    access="global"
+>
+    <!-- designer -->
+    <aura:attribute name='maxTileSize' type='Integer' default='200' access='global' />
+    <!-- private -->
+	<aura:attribute name='debug' type='Boolean' default='false' access='global' />
+	<aura:attribute name='quickLinks' type='ltng_QuickLink__c[]' access='global' />
+    <aura:attribute name='setupComplete' type='Boolean' default='false' access='public' />
+    <!-- scripts -->
+    <!-- handlers -->
+    <!-- handlers -->
+    <aura:handler name='init' value='{!this}' action='{!c.doInit}' />
+    
+    <div class='narrow homeHomeCard'>
+        <div class='slds-card forceBaseCard'>
+            <div class='slds-card__header slds-grid'>
+            	<header class='slds-media slds-media--center slds-has-flexi-truncate'>
+                	<div class='slds-media__body'>
+                    	<h2>
+                            <a href='javascript:void(0);' class='slds-card__header-link slds-truncate'>
+                            	<span class='slds-text-heading--small'>Quick Links</span>
+                            </a>
+                        </h2>
+                    </div>
+                </header>
+            </div>
+            <div class='slds-card__body'>
+                <ul class='slds-grid slds-grid--pull-padded slds-wrap'>
+                <aura:iteration items='{! v.quickLinks }' var='quickLink'>
+                    <c:ltng_QuickLinksTile quickLink='{! quickLink }' />
+                </aura:iteration>
+                </ul>
+            </div>
+        </div>
+    </div>
+</aura:component>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Links to allow people to get around the new Rome Experience quicker.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <label>Quick Link</label>
+    <nameField>
+        <label>Quick Link Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Quick Links</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>Read</sharingModel>
+    <visibility>Public</visibility>
+    <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>(optional) Description is only shown in large contexts</inlineHelpText>
+        <label>Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>ExternalId__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <description>Used in data loading and updates.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Unique Id for the icon.</inlineHelpText>
+        <label>External Id</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>IconGroup__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The Lightning Design System icon group.
+https://www.lightningdesignsystem.com/icons/
+Standard is used if not set.</inlineHelpText>
+        <label>Icon Group</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>standard</fullName>
+                    <default>false</default>
+                    <label>standard</label>
+                </value>
+                <value>
+                    <fullName>custom</fullName>
+                    <default>false</default>
+                    <label>custom</label>
+                </value>
+                <value>
+                    <fullName>action</fullName>
+                    <default>false</default>
+                    <label>action</label>
+                </value>
+                <value>
+                    <fullName>doctype</fullName>
+                    <default>false</default>
+                    <label>doctype</label>
+                </value>
+                <value>
+                    <fullName>utility</fullName>
+                    <default>false</default>
+                    <label>utility</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>IconName__c</fullName>
+        <description>List of all icons are available here:
+https://www.lightningdesignsystem.com/icons/#standard</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Standard Lightning Icon name (or blank if no icon should be used):
+
+https://www.lightningdesignsystem.com/icons</inlineHelpText>
+        <label>Icon Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Permission__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the custom permission that is required for the user to see this link.</inlineHelpText>
+        <label>Permission</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PreferredSortIndex__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Lowest number QuickLink appears at the top (those without towards the bottom)</inlineHelpText>
+        <label>Preferred Sort Index</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Target__c</fullName>
+        <description>Can be URL Schemes, partial urls, etc.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Target address for the quick link.</inlineHelpText>
+        <label>Target</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <description>Please note that the Visualforce page can include URL Parameters.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Whether the target is a Record Id, Visualforce page, URL, etc.</inlineHelpText>
+        <label>Type</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Visualforce</fullName>
+                    <default>false</default>
+                    <label>Visualforce</label>
+                </value>
+                <value>
+                    <fullName>Record</fullName>
+                    <default>false</default>
+                    <label>Record</label>
+                </value>
+                <value>
+                    <fullName>URL</fullName>
+                    <default>false</default>
+                    <label>URL</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>PreferredSortIndex__c</columns>
+        <columns>Type__c</columns>
+        <columns>Permission__c</columns>
+        <columns>Description__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All1</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+</CustomObject>

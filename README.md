@@ -1,225 +1,126 @@
-# INTERNAL NOTES
-
-Wait, what is this?
-
-This is meant to be a simple starting point for creating Lightning demo projects
-
-
-
-# Structure of the project
-
-* doc - documentation resources
-  * images - images for documentation
-* data - data used in demo
-  * queries - queries used in extracting data for demos
-  * trees - data trees used for demos
-* dx - salesforce dx project
-* mdapi - mdapi version of dx project
-
-# How do I use this?
-
-**If using windows: We're in the middle of migrating to a salesforce cli plugin shortly. Please see the How do I use this manual steps below**
-
-**1.** Download the raw shellscript here:
-[https://github.com/SalesforceCloudServices/ltng-support-demo-template/blob/createTemplateProject/createTemplateProject.sh](https://github.com/SalesforceCloudServices/ltng-support-demo-template/blob/createTemplateProject/createTemplateProject.sh)
-
-Place it in a folder that you'll want to store your templates. (The template will be cloned and checked out in the same folder)
-
-**2.** Create a github project within the [SalesforceCloudServices Github](https://github.com/SalesforceCloudServices/) <br />
-with a name similar to: `ltng-support-NAME_OF_DEMO` <br />
-(for example: ltng-support-url-hack)
-
-And copy your new project name.
-
-**(The script will clone the project for you, and populate master for you)**
-	
-**3.** Run the Shellscript and follow the prompts
-
-	./createTemplateProject.sh
-	
-	... yadda yadda - remember to make a repo ...
-	
-	What is the name of the new repository? (ex: ltng-support-url-hack)
-	ltng-support-my-project-name
-	
-	
-	The git repository URL is expected to be:
-	git@github.com:SalesforceCloudServices/ltng-support-my-project-name.git
-	Is this correct? [Y/N]
-	y
-	
-	
-	This repository already seems to exist.
-	Should we continue? [Y/N]
-	y
-	
-	...
-	
-	Cloning into 'ltng-support-lds-responsive'...
-	
-	...
-	
-	renaming and adding origins
-	
-	...
-	
-	pushing project master
-	
-	...
-	
-	creating the dx project
-	
-	...	
-	
-	-- Your project  has been created
-	
-	
-# How do I use this: Manual Steps
-
-We're in the middle of transitioning from shellscript to a salesforce cli plugin that will accomplish the same as the shellscript.
-
-The manual steps below do the same as the shellscript.
-
-**1.** clone this repository where you will keep your templates:
-
-	git clone git@github.com:SalesforceCloudServices/ltng-support-demo-template.git
-	
-**2.** import to your demo repo of a similar name: ltng-support-NAME_OF_DEMO
-
-**3.** Create a Salesforce DX project in the 'dx' folder
-
-	//-- newRepositoryName would be the ltng-support-NAME_OF_DEMO
-	//-- ex: newRepositoryName="ltng-support-bootstrap"
-	sfdx force:project:create --projectname "${newRepositoryName}" -d dx
-	
-**4.** Rename the org in `dx/config/project-scratch-def.json`
-	Change "orgName" value in the JSON to a better name of your scratch org (such as ltng-support-NAME_OF_DEMO)
-
-**5.** Create a scratch org to prepare and store your demo
-
-	// -a [[How you would like to identify the org]]
-	// -s [[make the project a default
-	// -v [[name of the alias of the lightning support org]]
-	// -d [[duration - in days]]
-	// -f /path/to/project-scratch-def.json
-	
-	sfdx force:org:create -d 20 -f dx/config/project-scratch-def.json -s -v [[your hub alias]] -a [[new alias for this scratch org]]
-	
-	ex:
-	
-	sfdx force:org:create -d 20 -f dx/config/project-scratch-def.json -s -v lightningSupport -a SOME_ALIAS
-	
-**6.** CLEANUP: Add `**.profiles` within dx/.forceignore, to ensure we do not track profiles (only permission sets)
-
-# Quick Help:
-
-**How do I create a dx project?** <br />
-[sfdx force:project:create](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_force_project.htm#cli_reference_force_project)
-
-**How do I run a script after installation?** <br />
-[Create an Apex Class that implements InstallHandler](https://developer.salesforce.com/docs/atlas.en-us.packagingGuide.meta/packagingGuide/apex_post_install_script_create.htm)
-
-**How do I convert the dx source to metadata api (mdapi folder)?**
-
-	sfdx force:source:convert -r force-app -d ../mdapi
-
-**How do I create a package?**
-
-Be careful, you need to specify the --containeroptions/-o as Unlocked when you create it (and this cannot be changed)
-
---containeroptions/-o Unlocked  
---name/-n Name of the package  
---description/-d Description of the package  
---targetdevhubusername/-v Alias of the Dev Hub  
-
-	ex:
-	sfdx force:package2:create -o Unlocked -n ltng-support-url-hack -d "Demos of how to replace URL Hack Buttons in Lightning" -v lightningSupport
-	
-[See Here for more](https://trailhead.salesforce.com/en/modules/unlocked-packages-for-customers/units/build-your-first-unlocked-package)
-
-**Then update the `sfdx-project.json` file**
-
-Add the following to the `packageDirectories` element in that file:
-
-	{
-	  "packageDirectories": [ 
-	    {
-	      "path": "force-app",
-	      "default": true,
-	      -- add these items below
-	      "id": "0Ho_xxx", -- your package2 ID (not subscriber)
-	      "versionName": "Version 1.0",
-	      "versionNumber": "1.0.0.NEXT"
-	      -- add the items above
-	    }
-	  ],
-	  "namespace": "",
-	  "sfdcLoginUrl": "https://login.salesforce.com",
-	  "sourceApiVersion": "42.0"
-	}
-	
-**THEN you need to create a package version**
-
-sfdx force:package2:version:create --directory force-app/ --wait 10
-
-**Then** - change the deploy url within the `deploy via url` section down below.
-
-	ex: 
-	[https://test.salesforce.com/packaging/installPackage.apexp?p0=YOUR_VERSION_ID](https://test.salesforce.com/packaging/installPackage.apexp?p0=YOUR_VERSION_ID)
-	
-	and
-	(or simply navigate to `https://YOUR_SALESFORCE_INSTANCE/packaging/installPackage.apexp?p0= YOUR_VERSION_ID ` <br />
-	if you are already logged in)
-	
-	turns into
-	
-	[https://test.salesforce.com/packaging/installPackage.apexp?p0=04t6A000002sreiQAA](https://test.salesforce.com/packaging/installPackage.apexp?p0=04t6A000002sreiQAA)
-	
-	and
-	(or simply navigate to `https://YOUR_SALESFORCE_INSTANCE/packaging/installPackage.apexp?p0= 04t6A000002sreiQAA` <br />
-	if you are already logged in)
-
-**How do I get my password again?**
-
-sfdx force:user:display -u USERNAME
-
-**How do I create a scratch org?**
-
-	// -a [[How you would like to identify the org]]
-	// -s [[make the project a default
-	// -v [[name of the alias of the lightning support org]]
-	// -d [[duration - in days]]
-	// -f /path/to/project-scratch-def.json
-	
-	sfdx force:org:create -v lightningSupport -d 20 -f dx/config/project-scratch-def.json -s -a SOME_ALIAS
-
-
-# DELETE EVERYTHING ABOVE WHEN READY
-
------
------
-------
-------
-------
-------
-------
-
-
 # Overview
 
-Overview_of_what_the_project_represents
+In Classic, you have the ability to use QuickLinks - a configurable set of links for people to see in the Sidebar.
+
+What options do you have available in Lightning Experience?
 
 **Please note: sample code (metadata api and dx formats) are available in the [mdapi](./mdapi) and [dx](./dx) folders above**
 
 # Demo
 
-![Gif Demo](docs/images/demo.gif)
+This project contains a sample component that slightly enhances the standard 'QuickLink' behavior, and very easily shows some of the power available with Lightning Experience.
 
-What_the_demo_demonstrates_and_why_we_care
+![Gif Demo](docs/images/quickLinksDemo2.gif)
+
+In this example, we create a custom object (called Quick Link) that list out according to the Lightning Design System.
+
+Each are avaialble through Declarative means, and can be modified by anyone with the 'QuickLinkAdmin' permission set. (QuickLinkUsers should only be able to use them)
+
+![Gif Demo](docs/images/quickLinksDemo.gif)
+
+The QuickLinks shown are based on the QuickLink records, each specifying the target, icon and how it behaves.
+
+They are also optionally tied to a custom permission, so Administrators have complete control over whom can see which tile.
+
+In this case, the Demo Setup initially assigns you as a 'Quick Link Admin'. So you have the 'QuickLinksAdmin' custom permission, and can thus see the 'Admin Only Link'.
+
+Switching your user to only the 'Quick Link User' permission set, would not see this link, because it does not have that Custom Permission.
 
 # TLDR How
 
-* Bullet_points_of_how_this_was_done
+* We create a custom Lightning Component to expose those QuickLinks
+* And provide it on custom Home Page Layouts / Utility Bars or even separate pages.
+
+As it is a lightning component, we can customize how it behaves within the App Builder / extend it as desired / or have complete control over where it is placed.
+
+# Custom Permissions How
+
+The majority of the magic happens within the [ltng_QuickLinksCmp_C.cls](dx/force-app/main/default/classes/ltng_QuickLinksCmp_C.cls)
+
+(for the list of all variables, please see the Controller code. Abbreviated here for readability).
+
+First, lets get all the QuickLinks, in order or Sort Priority.
+(Making sure that those without priority are listed last)
+		
+		//-- determine all quicklinks and sort them by the permission required to see them.
+		ltng_QuickLink__c[] allQuickLinks = [ select id, name, Description__c, ExternalId__c, IconGroup__c, IconName__c, Type__c, Target__c, Permission__c, PreferredSortIndex__c, LastModifiedDate
+			from ltng_QuickLink__c
+			order by PreferredSortIndex__c NULLS LAST, name
+		];
+		
+		for( ltng_QuickLink__c quickLink : allQuickLinks ){
+			if( String.isEmpty( quickLink.Permission__c )){
+				results.add( quickLink );
+			} else {
+				if( !quickLinksByPermission.containsKey( quickLink.Permission__c )){
+					quickLinksByPermission.put( quickLink.Permission__c, new ltng_QuickLink__c[]{} );
+				}
+				quickLinksByPermission.get( quickLink.Permission__c ).add( quickLink );
+			}
+		}
+		
+
+We now know all the quicklinks that require permissions (and need further attention - to see if the user can see them)
+
+QuickLinks without any CustomPermission assignment are shown to everyone.
+
+Lets get a list of the Custom Permissions (known by their Salesforce ID)
+
+
+		allQuickLinkPermissions = quickLinksByPermission.keySet();
+		
+		//-- create a translation for all custom permission DeveloperNames to their IDs
+		for( CustomPermission perm: [
+			SELECT Id, DeveloperName FROM CustomPermission WHERE DeveloperName in :allQuickLinkPermissions
+		]){
+			customPermissions.put( perm.Id, perm.DeveloperName );
+		}
+		
+We now know the Custom Permissions mapped to their Salesforce ID.
+
+(We limit this to only those CustomPermissions used within QuickLinks - to be efficient).
+
+We now need to collect all the PermissionSets that contain those CustomPermissions.
+		
+		//System.debug( 'customPermissionsMap:' + customPermissions );
+		//-- collect all permission sets by custom permission developer name
+		String permissionName;
+		for( SetupEntityAccess access: [
+			SELECT SetupEntityId, ParentId FROM SetupEntityAccess WHERE SetupEntityId in (
+				SELECT Id FROM CustomPermission WHERE DeveloperName in :allQuickLinkPermissions
+			)
+		]){
+			if( !permissionSetPermissions.containsKey( access.ParentId )){
+				permissionSetPermissions.put( access.ParentId, new String[]{} );
+			}
+			permissionName = customPermissions.get( access.SetupEntityId );
+			permissionSetPermissions.get( access.ParentId ).add( permissionName );
+		}
+		
+We now have a list of all permissionSets with the custom permissions that they contain.
+		
+We need to determine all the PermissionSets that the user has, and therefore all the CustomPermissions the user has.
+
+		Set<String> userCustomPermissions = new Set<String>();
+		for( PermissionSetAssignment assignment: [
+			SELECT PermissionSetId FROM PermissionSetAssignment where AssigneeId = :userId
+		]){
+			if( permissionSetPermissions.containsKey( assignment.PermissionSetId )){
+				userCustomPermissions.addAll( permissionSetPermissions.get( assignment.PermissionSetId ) );
+			}
+		}
+		
+We now know all the custom permissions that the user belongs to.
+
+We need to add all the quickLinks that are available for the current user, to the results.
+		
+		for( String userCustomPermission : userCustomPermissions ){
+			results.addAll( quickLinksByPermission.get( userCustomPermission ));
+		}
+		
+And finally return the results
+		
+		return( results );
 
 ---
 
@@ -239,9 +140,9 @@ This works very similar to an App Exchange install.
 
 Please login to an available sandbox and click the link below.
 
-[https://test.salesforce.com/packaging/installPackage.apexp?p0=04t6A000002sreiQAA](https://test.salesforce.com/packaging/installPackage.apexp?p0=04t6A000002sreiQAA)
+[https://test.salesforce.com/packaging/installPackage.apexp?p0=04t6A000002ssKlQAI](https://test.salesforce.com/packaging/installPackage.apexp?p0=04t6A000002ssKlQAI)
 
-(or simply navigate to `https://YOUR_SALESFORCE_INSTANCE/packaging/installPackage.apexp?p0= 04t6A000002sreiQAA` <br />
+(or simply navigate to `https://YOUR_SALESFORCE_INSTANCE/packaging/installPackage.apexp?p0=04t6A000002ssKlQAI` <br />
 if you are already logged in)
 
 ![Install for Admins](docs/images/installPackage.png)
@@ -256,7 +157,7 @@ Next, click on the 'dice' and open the 'URL Hack Demo' app.
 
 and run `Setup` from the `URL Hack Demo Setup` tab.
 
-![URL Hack Demo Setup](docs/images/demoSetup1.png)
+![URL Hack Demo Setup](docs/images/QuickLinkSetup.png)
 
 This will then perform any additional setup (such as creating records, etc).
 
@@ -265,33 +166,7 @@ This will then perform any additional setup (such as creating records, etc).
 Thats it, all information should be avaiable for running all demos now from the `URL Hack Bases` tab.
 
 Feel free to create your own and to create children through the QuickActions, Lightning Actions or List View buttons.
-
-#### -- Known Issue -- Add the missing permissions on the permission set
-
-If you get an error saying 'This record is not available' (when creating records),
-you are likely affectd by a known issue with Unlocked Package deploys.
-
-(This is also mentioned from the Setup page)
-
-We are working with different teams, but it appears as though the installation works correctly from Salesforce CLI, but requires additional steps from the insllation URL.
-
-**We appologize for this inconvenience and are working towards correcting it**
-
-**1.** Navigate to the 'Dependent Picklist Demo' app
-
-![Find Permission Set](docs/images/appInLauncher.png)
-
-**2.** Navigate to the 'Dependent Picklist Demo Setup' page
-
-![Dependent Picklist Demo page](docs/images/correctPermissionSet.png)
-
-and click on the link **Add the 'Master', 'Type A' and 'Type B' record types to the permission set'**
-
-This will navigate you to the permission set in your org.
-
-**3.** Click edit and enable the record types for that permission set.
-
-![Add record types to permission set](docs/images/correctPermissionSet2.png)
+s
 
 ## Installing via the Salesforce CLI
 
@@ -305,17 +180,19 @@ However, the Salesforce CLI can be used with any org and does not require Salesf
 
 **2.** Add the permission set to your user
 
-	sfdx force:user:permset:assign -n Ticket_Manager -u [[orgAlias]]
+	sfdx force:user:permset:assign -n QuickLinksAdmin -u [[orgAlias]]
 	
 **3.** Upload the data
 
-	sfdx force:data:tree:import -f data/tree/Ticket__c.json -u [[orgAlias]]
+	sfdx force:data:tree:import -f data/trees/ltng_QuickLink__c.json -u [[orgAlias]]
 	
-...
-
-Thats it, you can now open the org, and find the 'ticket' object in the 'all tabs' search.
+or optionally run the `Quick Link Setup` (available after you open the org)
 
 	sfdx force:org:open -u [[orgAlias]]
+	
+![Quick Link Setup Screenshot](docs/images/QuickLinkSetup.png)
+
+Thats it, you can now open the `Quick Links Demo` to see those QuickLinks available.
 
 # Bit more detail...
 

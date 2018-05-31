@@ -62,4 +62,8 @@
         <tab>ltng_QuickLinksDemo</tab>
         <visibility>Visible</visibility>
     </tabSettings>
+    <tabSettings>
+        <tab>ltng_QuickLinksDemoSetup</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
 </PermissionSet>

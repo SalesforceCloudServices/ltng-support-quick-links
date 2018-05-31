@@ -9,6 +9,7 @@
     <formFactors>Large</formFactors>
     <label>Quick Links Demo</label>
     <navType>Standard</navType>
+    <tabs>ltng_QuickLinksDemoSetup</tabs>
     <tabs>ltng_QuickLinksDemo</tabs>
     <tabs>ltng_QuickLink__c</tabs>
     <uiType>Lightning</uiType>

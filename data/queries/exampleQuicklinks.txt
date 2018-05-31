@@ -1,2 +1,2 @@
-select CreatedById, CreatedDate, Description__c, ExternalId__c, IconGroup__c, IconName__c, Id, IsDeleted, LastModifiedById, LastModifiedDate, Name, OwnerId, Permission__c, PreferredSortIndex__c, SystemModstamp, Target__c, Type__c from QuickLink__c
+select Description__c, ExternalId__c, IconGroup__c, IconName__c, Name, Permission__c, PreferredSortIndex__c, Target__c, Type__c from ltng_QuickLink__c
 
