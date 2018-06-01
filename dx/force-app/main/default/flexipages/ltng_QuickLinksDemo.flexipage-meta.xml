@@ -13,7 +13,7 @@
 &lt;br /&gt;
 They are also optionally tied to a custom permission, so Administrators have complete control over whom can see which tile.&lt;br /&gt;
 &lt;br /&gt;
-In this case, the Demo Setup initially assigns you as a &amp;#39;Quick Link Admin&amp;#39;. So you have the &amp;#39;QuickLinksAdmin&amp;#39; custom permission, and can thus see the &amp;#39;Admin Only Link&amp;#39;.&lt;br /&gt;
+In this case, the Demo Setup initially assigns you as a &amp;#39;&lt;b&gt;Quick Link Admin&lt;/b&gt;&amp;#39; (QuickLinksAdmin). So you have the &amp;#39;&lt;b&gt;QuickLinksAdmin&lt;/b&gt;&amp;#39; custom permission, and can thus see the &amp;#39;&lt;b&gt;Admin Only Link&lt;/b&gt;&amp;#39;.&lt;br /&gt;
 &lt;br /&gt;
 Switching your user to only the &amp;#39;Quick Link User&amp;#39; permission set, would not see this link, because it does not have that Custom Permission.</value>
             </componentInstanceProperties>
