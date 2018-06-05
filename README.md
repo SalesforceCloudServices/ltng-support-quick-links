@@ -26,6 +26,96 @@ In this case, the Demo Setup initially assigns you as a 'Quick Link Admin'. So y
 
 Switching your user to only the 'Quick Link User' permission set, would not see this link, because it does not have that Custom Permission.
 
+# To Use
+
+Tiles available for everyone, simply require a new `Quick Link` record.
+
+![Screenshot of New Quick Link screen](docs/images/CreateQuickLink.png)
+
+**1.** Create a new Quick Link record
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+		<th>Example</th>
+	</tr>
+	<tr>
+		<td>Quick Link Name</td>
+		<td>Name visible in the list</td>
+		<td>Account Link</td>
+	</tr>
+	<tr>
+		<td>External Id</td>
+		<td>External Id to use for loading / updates with external systems</td>
+		<td>Account_Link</td>
+	</tr>
+	<tr>
+		<td>Type</td>
+		<td>VisualForce | URL | Record</td>
+		<td>URL</td>
+	</tr>
+	<tr>
+		<td>Description</td>
+		<td>Description of your Quick Link (for posterity)</td>
+		<td>...</td>
+	</tr>
+	<tr>
+		<td>Target</td>
+		<td>VisualForce Page API / URL / SF Id</td>
+		<td>https://www.google.com</td>
+	</tr>
+	<tr>
+		<td>Icon Name</td>
+		<td>Name of the Icon from <a href='https://lightningdesignsystem.com/icons/'>the Lightning Design System</a></td>
+		<td>custom</td>
+	</tr>
+	<tr>
+		<td>Icon Group</td>
+		<td>Icon Group from <a href='https://lightningdesignsystem.com/icons/'>the Lightning Design System</a></td>
+		<td>standard</td>
+	</tr>
+	<tr>
+		<td>Optional - Permission</td>
+		<td>Custom Permission that a user must have to see this QuickLink</td>
+		<td>QuickLinkAdmin</td>
+	</tr>
+</table>
+
+### Private QuickLinks
+
+The `Permission` value indicates which CustomPermission that people must have to see this QuickLink.
+
+If it is blank - then it is visible to all people.
+
+Otherwise, we recommend using PermissionSets to grant out the QuickLink.
+
+**1.** Create the Custom Permission
+
+**Please note: the Name/API Name is what is used in the `Permission` field of the QuickLink**
+
+![Screenshot of new Custom Permission](docs/images/newCustomPermission.png)
+
+**2.** Create a PermissionSet
+
+![Screenshot of new Permission Set](docs/images/newPermissionSet.png)
+
+**3.** Assign the Custom Permission to the PermissionSet
+
+(Search for 'Custom Permission' in Permission Set > Edit > Assign your new Custom Permission)
+
+![Screenshot](docs/images/assignCustomPermission.png)
+
+**4.** Assign users to that PermissionSet.
+
+(Manage Assignments > Add Assignments > Select Users > Assign)
+
+![Screenshot](docs/images/assignPermissionSets.png)
+
+Now - any user that accesses the QuickLinks that have that PermissionSet will see that QuickLink.
+
+![Gif Demo](docs/images/quickLinksDemo.gif)
+
 # TLDR How
 
 * We create a custom Lightning Component to expose those QuickLinks
