@@ -4,7 +4,9 @@ In Classic, you have the ability to use QuickLinks - a configurable set of links
 
 What options do you have available in Lightning Experience?
 
-**Please note: sample code (metadata api and dx formats) are available in the [mdapi](./mdapi) and [dx](./dx) folders above**
+**Please note: Please see the [Install](#install) section for how to install.**
+
+Sample code is available as an [installation url](#install-via-url) or [Salesforce DX](#installing-via-the-salesforce-cli) or [MetaData/Ant](./mdapi)
 
 # Demo
 
@@ -230,9 +232,9 @@ This works very similar to an App Exchange install.
 
 Please login to an available sandbox and click the link below.
 
-[https://test.salesforce.com/packaging/installPackage.apexp?p0=04t6A000002ssKqQAI](https://test.salesforce.com/packaging/installPackage.apexp?p0=04t6A000002ssKqQAI)
+[https://test.salesforce.com/packaging/installPackage.apexp?p0=04t6A000002ssf4QAA](https://test.salesforce.com/packaging/installPackage.apexp?p0=04t6A000002ssf4QAA)
 
-(or simply navigate to `https://YOUR_SALESFORCE_INSTANCE/packaging/installPackage.apexp?p0=04t6A000002ssKqQAI` <br />
+(or simply navigate to `https://YOUR_SALESFORCE_INSTANCE/packaging/installPackage.apexp?p0=04t6A000002ssf4QAA` <br />
 if you are already logged in)
 
 ![Install for Admins](docs/images/installPackage.png)
@@ -256,7 +258,8 @@ This will then perform any additional setup (such as creating records, etc).
 Thats it, all information should be avaiable for running all demos now from the `URL Hack Bases` tab.
 
 Feel free to create your own and to create children through the QuickActions, Lightning Actions or List View buttons.
-s
+
+See the [To Use](#to-use) section for more detail.
 
 ## Installing via the Salesforce CLI
 
@@ -284,13 +287,4 @@ or optionally run the `Quick Link Setup` (available after you open the org)
 
 Thats it, you can now open the `Quick Links Demo` to see those QuickLinks available.
 
-# Bit more detail...
-
-More_detail_on_how_this_was_done
-
-## Component
-
-What_about_the_component
-
-	sample code
 	
