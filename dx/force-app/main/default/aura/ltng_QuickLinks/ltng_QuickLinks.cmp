@@ -4,7 +4,8 @@
     <!-- designer -->
     <aura:attribute name='maxTileSize' type='Integer' default='200' access='global' />
     <!-- private -->
-	<aura:attribute name='debug' type='Boolean' default='false' access='global' />
+    <aura:attribute name='debug' type='Boolean' default='false' access='global' />
+    <aura:attribute name='enableCaching' type='Boolean' default='true' access='global' />
 	<aura:attribute name='quickLinks' type='ltng_QuickLink__c[]' access='global' />
     <aura:attribute name='setupComplete' type='Boolean' default='false' access='public' />
     <!-- scripts -->

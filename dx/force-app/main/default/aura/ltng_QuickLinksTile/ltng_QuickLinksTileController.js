@@ -9,7 +9,7 @@
     },
     
     doInit: function( component, event, helper ){
-        console.log( 'quickLinkTile init' );
+        //console.log( 'quickLinkTile init' );
     },
     
     /** handler if the quickLink has changed **/
