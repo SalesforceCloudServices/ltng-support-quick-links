@@ -1,7 +1,7 @@
 ({
 	/** initializes the component **/
     doInit: function(component, event, helper) {
-        //console.log( 'quickLinks init' );
+        console.log( 'quickLinks was initialized - placebreakpoint to learn more.' );
         helper.loadQuickLinks( component, helper );
 	},
     

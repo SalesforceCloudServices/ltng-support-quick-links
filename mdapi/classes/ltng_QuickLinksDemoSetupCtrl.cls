@@ -190,7 +190,7 @@ global with sharing class ltng_QuickLinksDemoSetupCtrl {
             IconGroup__c = 'utility',
             IconName__c = 'announcement',
             Name = 'Announcement',
-            Target__c = '/a01',
+            Target__c = '/lightning/o/Account/list',
             Type__c = 'URL'
         ));
         
@@ -201,7 +201,7 @@ global with sharing class ltng_QuickLinksDemoSetupCtrl {
             IconGroup__c = 'utility',
             IconName__c = 'answer',
             Name = 'List of Answers',
-            Target__c = '/a01',
+            Target__c = '/lightning/o/Account/list',
             Type__c = 'URL'
         ));
         
@@ -212,7 +212,7 @@ global with sharing class ltng_QuickLinksDemoSetupCtrl {
             IconGroup__c = 'standard',
             IconName__c = 'account',
             Name = 'Account Link',
-            Target__c = '/a01',
+            Target__c = '/lightning/o/Account/list',
             Type__c = 'URL'
         ));
         
@@ -223,7 +223,7 @@ global with sharing class ltng_QuickLinksDemoSetupCtrl {
             IconGroup__c = 'standard',
             IconName__c = 'custom',
             Name = 'Standard Link',
-            Target__c = '/a01',
+            Target__c = '/lightning/o/Account/list',
             Type__c = 'URL'
         ));
         
@@ -234,7 +234,7 @@ global with sharing class ltng_QuickLinksDemoSetupCtrl {
             IconGroup__c = 'standard',
             IconName__c = 'custom',
             Name = 'Admin Only Link',
-            Target__c = '/a01',
+            Target__c = '/lightning/o/ltng_QuickLink__c/list',
             Permission__c = 'QuickLinksAdmin',
             Type__c = 'URL'
         ));

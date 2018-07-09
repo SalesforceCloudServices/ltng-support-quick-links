@@ -3,8 +3,10 @@
 	 * loads in all the quicklinks
 	 **/
     loadQuickLinks : function( component, helper ) {
-		var action=component.get("c.getMyLinks");
-        action.setStorable();
+        var action=component.get("c.getMyLinks");
+        if( component.get('v.enableCaching') == true ){
+            action.setStorable();
+        }
         //action.setParams({ userId: something });
         
         action.setCallback(this,function(response){

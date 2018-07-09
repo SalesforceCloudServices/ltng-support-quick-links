@@ -20,7 +20,7 @@
   </types>
   <types>
     <name>ContentAsset</name>
-    <members>lightningLogo</members>
+    <members>quickLinksDemoAppLogo</members>
   </types>
   <types>
     <name>CustomPermission</name>
@@ -51,7 +51,6 @@
   <types>
     <name>ListView</name>
     <members>ltng_QuickLink__c.All</members>
-    <members>ltng_QuickLink__c.All1</members>
   </types>
   <types>
     <name>CustomObject</name>
